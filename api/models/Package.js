@@ -12,7 +12,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-    deliveryLocation:{
+    deliveryAddress:{
       type: 'string',
       required: true
     },
@@ -26,13 +26,14 @@ module.exports = {
       required: true
     },
     deliveryTimestamp:{
-      type: 'string',
-      columnType: 'datetime',
-      required: true
+      type: 'number',
+      columnType: 'bigint',
     },
     deliveryCost:{
       type: 'number',
-      required: false
+    },
+    warehouseId:{
+    	model: 'warehouse'
     }
   }
 };
