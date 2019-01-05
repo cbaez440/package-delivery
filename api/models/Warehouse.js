@@ -7,23 +7,23 @@
 
 module.exports = {
 
-	attributes: {
-		name:{
-			type: 'string',
-			required: true
-		},
-		city:{
-			type: 'string',
-			required: true
-		},
-		limit:{
-			type: 'number',
-			required: true
-		},
-		packages:{
-			type: 'number',
-			required: false
-		}
-	}
+  attributes: {
+    name:{
+      type: 'string',
+      required: true
+    },
+    city:{
+      type: 'string',
+      required: true
+    },
+    limit:{
+      type: 'number',
+      required: true
+    },
+    packages:{
+      type: 'number',
+      required: false
+    }
+  }
 };
 

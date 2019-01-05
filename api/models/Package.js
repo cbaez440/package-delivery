@@ -7,33 +7,33 @@
 
 module.exports = {
 
-	attributes: {
-		code:{
-			type: 'string',
-			required: true
-		},
-		delivery_location:{
-			type: 'string',
-			required: true
-		},
-		delivery_date:{
-			type: 'string',
-			columnType: 'date',
-			required: true
-		},
-		state:{
-			type: 'string',
-			required: true
-		},
-		delivery_timestamp:{
-			type: 'string',
-			columnType: 'datetime',
-			required: true
-		},
-		delivery_cost:{
-			type: 'number',
-			required: false
-		}
-	}
+  attributes: {
+    code:{
+      type: 'string',
+      required: true
+    },
+    deliveryLocation:{
+      type: 'string',
+      required: true
+    },
+    deliveryDate:{
+      type: 'string',
+      columnType: 'date',
+      required: true
+    },
+    state:{
+      type: 'string',
+      required: true
+    },
+    deliveryTimestamp:{
+      type: 'string',
+      columnType: 'datetime',
+      required: true
+    },
+    deliveryCost:{
+      type: 'number',
+      required: false
+    }
+  }
 };
 
