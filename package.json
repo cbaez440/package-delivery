@@ -10,11 +10,13 @@
     "@sailshq/socket.io-redis": "^5.2.0",
     "google-distance-matrix": "^1.1.1",
     "grunt": "1.0.1",
+    "jest": "^23.6.0",
     "sails": "^1.1.0",
     "sails-hook-grunt": "^3.1.0",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^1.5.5",
-    "sails-mysql": "^1.0.1"
+    "sails-mysql": "^1.0.1",
+    "supertest": "^3.3.0"
   },
   "devDependencies": {
     "@sailshq/eslint": "^4.19.3",
@@ -24,9 +26,12 @@
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "test": "jest",
     "lint": "eslint .",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jest/setup.js"
   },
   "main": "app.js",
   "repository": {

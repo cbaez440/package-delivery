@@ -28,7 +28,7 @@ module.exports = {
   exits: {
 
     success: {
-      
+
     },
 
   },
@@ -40,15 +40,15 @@ module.exports = {
     var destinations = [inputs.destination];
 
     distance.mode('driving');
-    
-    await distance.matrix(origins, destinations, function (err, distances) {
-        if (!err)
-          console.log(distances);
-          console.log(distances.rows[0].elements);
-          
-          var distance = distances.rows[0].elements[0].distance.value; // meters
-          return exits.success(distance);
-    })
+
+    await distance.matrix(origins, destinations, (err, distances) => {
+      if (!err)
+      {console.log(distances);}
+      console.log(distances.rows[0].elements);
+
+      var distance = distances.rows[0].elements[0].distance.value; // meters
+      return exits.success(distance);
+    });
   }
 
 
