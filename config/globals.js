@@ -49,4 +49,11 @@ module.exports.globals = {
 
   sails: true,
 
+  PACKAGE_AT_MAIN_OFFICE: 'at main office',
+  PACKAGE_AT_WAREHOUSE: 'at warehouse',
+  PACKAGE_TOWARDS_DESTINATION: 'towards destination',
+  PACKAGE_DELIVERED: 'delivered',
+  PACKAGE_RETURNED: 'returned',
+
+  KMS_TRAVELED_PER_USD: 5
 };

@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mysql',
-    url: 'mysql://arzion:dev@localhost:3306/package_delivery',
+    url: 'mysql://arzion:dev@localhost:3306/package_delivery'
   },
 
 

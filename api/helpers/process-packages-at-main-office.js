@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Main office logistic',
+  friendlyName: 'Process packages at main office',
 
 
   description: 'processes packages from main office to warehouse',
