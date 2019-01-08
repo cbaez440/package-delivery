@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Update package',
 
 
-  description: 'updates a package towards destination',
+  description: 'updates a package that goes to a warehouse',
 
 
   inputs: {
@@ -20,9 +20,9 @@ module.exports = {
       description: '',
       required: true
     },
-    cost: {
+    warehouseId: {
       type: 'number',
-      example: 80,
+      example: 8,
       description: '',
     }
   },
@@ -41,7 +41,7 @@ module.exports = {
 
     var  valuesToSet = {
       state: inputs.state,
-      deliveryCost: inputs.cost
+      warehouseId: inputs.warehouseId
     };
 
     var resp = await Package.updateOne({ id: inputs.packageId })

@@ -3,9 +3,7 @@ module.exports = {
 
   friendlyName: 'Get a warehouse',
 
-
   description: 'returns warehouse data',
-
 
   inputs: {
     warehouseId: {

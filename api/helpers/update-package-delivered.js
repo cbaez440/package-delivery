@@ -40,8 +40,8 @@ module.exports = {
   fn: async function (inputs) {
 
     var  valuesToSet = {
-        state: inputs.state,
-        deliveryCost: inputs.cost
+      state: inputs.state,
+      deliveryCost: inputs.cost
     };
 
     var resp = await Package.updateOne({ id: inputs.packageId })
