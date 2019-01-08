@@ -21,7 +21,7 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
+  fn: async function (inputs, exits) {
     var min = 1;
     var max = 3;
     var rand = Math.floor(Math.random() * (max - min + 1) + min); // Generate Random number between 5 - 10
@@ -30,7 +30,7 @@ module.exports = {
     // https://stackoverflow.com/a/13448477
     await new Promise(resolve => setTimeout(resolve, rand * 1000));
 
-    return;
+    return exits.success();
   }
 
 };

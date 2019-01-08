@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Update package',
 
 
-  description: 'updates a package after delivered',
+  description: 'updates a package that goes to a warehouse',
 
 
   inputs: {
@@ -20,9 +20,9 @@ module.exports = {
       description: '',
       required: true
     },
-    timestamp: {
+    warehouseId: {
       type: 'number',
-      example: 80,
+      example: 8,
       description: '',
     }
   },
@@ -37,16 +37,18 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
+  fn: async function (inputs, exits) {
 
     var  valuesToSet = {
       state: inputs.state,
-      deliveryCost: inputs.cost
+      warehouseId: inputs.warehouseId
     };
 
-    var resp = await Package.updateOne({ id: inputs.packageId })
+    var result = await Package.updateOne({ id: inputs.packageId })
     .set(valuesToSet);
 
-    return resp;
+    console.log(result);
+    return exits.success();
   }
 };
+

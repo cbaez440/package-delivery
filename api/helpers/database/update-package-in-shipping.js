@@ -37,17 +37,18 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
+  fn: async function (inputs, exits) {
 
     var  valuesToSet = {
       state: inputs.state,
       deliveryCost: inputs.cost
     };
 
-    var resp = await Package.updateOne({ id: inputs.packageId })
+    var result = await Package.updateOne({ id: inputs.packageId })
     .set(valuesToSet);
 
-    return resp;
+    console.log(result);
+    return exits.success();
   }
 };
 
