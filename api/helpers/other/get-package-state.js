@@ -26,16 +26,16 @@ module.exports = {
     var states = {
       [sails.config.globals.PACKAGE_DELIVERED]: 30,
       [sails.config.globals.PACKAGE_RETURNED]: 1
-    }
+    };
 
     // https://stackoverflow.com/a/43566526
     var array = [];
     for (var state in states) {
-        if (states.hasOwnProperty(state)) { 
-            for (var i = 0; i < states[state]; i++) {
-                array.push(state);
-            }
+      if (states.hasOwnProperty(state)) {
+        for (var i = 0; i < states[state]; i++) {
+          array.push(state);
         }
+      }
     }
 
     return array[Math.floor(Math.random() * array.length)];

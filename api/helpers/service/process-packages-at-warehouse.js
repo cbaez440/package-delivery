@@ -22,12 +22,12 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    var packagesToSend = await sails.helpers.getPackages.with({ state: sails.config.globals.PACKAGE_AT_WAREHOUSE });
+    var packagesToSend = await sails.helpers.database.getPackages.with({ state: sails.config.globals.PACKAGE_AT_WAREHOUSE });
 
     console.log(packagesToSend);
 
     for (var i = 0; i < packagesToSend.length; i++) {
-      await sails.helpers.processPackageAtWarehouse.with({ package: packagesToSend[i] });
+      await sails.helpers.service.processPackageAtWarehouse.with({ package: packagesToSend[i] });
     }
   }
 

@@ -26,14 +26,14 @@ module.exports = {
 
   fn: async function (inputs) {
 
-  	// Get the warehouse's city of a package
-    var warehouse = await sails.helpers.getWarehouse.with({ warehouseId: inputs.package.warehouseId });
+    // Get the warehouse's city of a package
+    var warehouse = await sails.helpers.database.getWarehouse.with({ warehouseId: inputs.package.warehouseId });
     var warehouseLocation = warehouse[0].city;
     var customerAddress = inputs.package.deliveryAddress;
     console.log('Warehouse location: %s', warehouseLocation);
 
     // Get the distance between the warehouse and the customer address
-    var distance = await sails.helpers.getDistance.with({ origin: warehouseLocation, destination: customerAddress }); // meters
+    var distance = await sails.helpers.maps.getDistance.with({ origin: warehouseLocation, destination: customerAddress }); // meters
     distance = (distance / 1000).toFixed(3); // kms
     console.log('Distance: %s', distance);
 
@@ -47,27 +47,27 @@ module.exports = {
     console.log('New state: %s', newState);
 
     // Update the database with the package's new attributes
-    await sails.helpers.updatePackageInShipping.with({ packageId: inputs.package.id, state: newState, cost: cost });
+    await sails.helpers.database.updatePackageInShipping.with({ packageId: inputs.package.id, state: newState, cost: cost });
 
     // How the package is going to the destination address, you simulate the passage of time. For the exersize, you assume that 1 second is 1 hour.
-    await sails.helpers.simulateDeliveryTime();
+    await sails.helpers.other.simulateDeliveryTime();
 
     /** The package reaches its destination **/
     var timestamp = new Date().getTime();
-    newState = await sails.helpers.getPackageState();
+    newState = await sails.helpers.other.getPackageState();
 
-    console.log("Timestamp: %s", timestamp);
-    console.log("New state: %s", newState);
+    console.log('Timestamp: %s', timestamp);
+    console.log('New state: %s', newState);
 
-   	// Update the database with the package's new attributes
-    await sails.helpers.updatePackageDelivered.with({ packageId: inputs.package.id, state: newState, timestamp: timestamp })
+    // Update the database with the package's new attributes
+    await sails.helpers.database.updatePackageDelivered.with({ packageId: inputs.package.id, state: newState, timestamp: timestamp });
 
     // If the package was delivered, the space that occupied in the warehouse has to be released
-    if (newState == sails.config.globals.PACKAGE_DELIVERED) {
-    	await sails.helpers.updatePackagesAtWarehouse.with({ warehouseId: inputs.package.warehouseId, operation: '-' });
+    if (newState === sails.config.globals.PACKAGE_DELIVERED) {
+      await sails.helpers.database.updatePackagesAtWarehouse.with({ warehouseId: inputs.package.warehouseId, operation: '-' });
     }
-    
-  }
 
+    console.log("Package %s done.", inputs.package.id)
+  }
 };
 

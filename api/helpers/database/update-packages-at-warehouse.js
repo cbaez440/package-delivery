@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Update warehouse',
 
 
-  description: "updates the warehouse's packages",
+  description: 'updates the warehouse\'s packages',
 
 
   inputs: {

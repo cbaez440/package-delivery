@@ -1,5 +1,5 @@
 test('should sleep the execution', async () => {
-	
-  await sails.helpers.simulateDeliveryTime();
+
+  await sails.helpers.other.simulateDeliveryTime();
 
 });

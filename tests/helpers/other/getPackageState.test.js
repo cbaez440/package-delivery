@@ -1,6 +1,6 @@
 test('should returns a package state', async () => {
-	
-  var state = await sails.helpers.getPackageState();
+
+  var state = await sails.helpers.other.getPackageState();
   console.log(state);
 
 });
