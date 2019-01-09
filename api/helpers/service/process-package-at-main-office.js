@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'PProcess one package at main office',
+  friendlyName: 'Process one package at main office',
 
 
   description: 'processes one package from main office to warehouse',

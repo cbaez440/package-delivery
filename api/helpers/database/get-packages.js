@@ -8,9 +8,9 @@ module.exports = {
 
 
   inputs: {
-    package_state: {
-      type: 'string',
-      example: 'delivered',
+    state: {
+      type: ['string'],
+      example: [],
       description: '',
       required: true
     },
@@ -30,7 +30,7 @@ module.exports = {
 
     // Get packages.
     var packages = await Package.find({
-      state: inputs.package_state
+      state: inputs.state
     });
 
     // Send back the result through the success exit.

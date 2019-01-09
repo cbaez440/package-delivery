@@ -22,7 +22,7 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    var packagesToDistribute = await sails.helpers.database.getPackages.with({ state: sails.config.globals.PACKAGE_AT_MAIN_OFFICE });
+    var packagesToDistribute = await sails.helpers.database.getPackages.with({ state: [sails.config.globals.PACKAGE_AT_MAIN_OFFICE] });
 
     console.log(packagesToDistribute);
 
