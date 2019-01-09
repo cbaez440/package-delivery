@@ -7,20 +7,6 @@ module.exports = {
   description: 'processes packages from warehouse to destination',
 
 
-  inputs: {
-
-  },
-
-
-  exits: {
-
-    success: {
-      description: 'All done.',
-    },
-
-  },
-
-
   fn: async function (inputs) {
     var packagesToSend = await sails.helpers.database.getPackages.with({ state: [sails.config.globals.PACKAGE_AT_WAREHOUSE, sails.config.globals.PACKAGE_RETURNED] });
 

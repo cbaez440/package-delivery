@@ -6,21 +6,6 @@ module.exports = {
 
   description: 'Simulates the passage of time',
 
-
-  inputs: {
-
-  },
-
-
-  exits: {
-
-    success: {
-      description: 'All done.',
-    },
-
-  },
-
-
   fn: async function (inputs, exits) {
     var min = 2;
     var max = 3;
@@ -30,7 +15,7 @@ module.exports = {
     // https://stackoverflow.com/a/13448477
     await new Promise(resolve => setTimeout(resolve, rand * 1000));
 
-    return exits.success();
+    return exits.success('all done');
   }
 
 };

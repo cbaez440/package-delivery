@@ -37,15 +37,6 @@ module.exports = {
   },
 
 
-  exits: {
-
-    success: {
-      description: 'All done.',
-    },
-
-  },
-
-
   fn: async function (inputs, exits) {
 
     var  valuesToSet = {};
@@ -63,7 +54,7 @@ module.exports = {
       case sails.config.globals.PACKAGE_AT_MAIN_OFFICE:
         valuesToSet = { state: inputs.state, deliveryCost: inputs.cost };
         break;
-      default: return exits.error();
+      default: return exits.error('error');
     }
     
     var result = await Package.updateOne({ id: inputs.packageId })
@@ -71,7 +62,7 @@ module.exports = {
 
     console.log(result);
 
-    return exits.success();
+    return exits.success('all done');
   }
 
 };

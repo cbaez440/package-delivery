@@ -14,17 +14,7 @@ module.exports = {
     }
   },
 
-
-  exits: {
-
-    success: {
-      description: 'All done.',
-    },
-
-  },
-
-
-  fn: async function (inputs) {
+  fn: async function (inputs, exits) {
 
     // Get the warehouse's city of a package
     var warehouse = await sails.helpers.database.getWarehouseById.with({ warehouseId: inputs.package.warehouseId });
@@ -68,6 +58,8 @@ module.exports = {
     }
 
     console.log("Package %s done.", inputs.package.id)
+
+    return exits.success('all done');
   }
 };
 

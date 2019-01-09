@@ -6,21 +6,6 @@ module.exports = {
 
   description: 'returns all warehouses',
 
-
-  inputs: {
-
-  },
-
-
-  exits: {
-
-    success: {
-      outputFriendlyName: 'Warehouses',
-    },
-
-  },
-
-
   fn: async function (inputs) {
 
     var warehouses = await Warehouse.find({

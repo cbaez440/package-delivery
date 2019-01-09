@@ -6,21 +6,6 @@ module.exports = {
 
   description: 'gets the packate state randomly and weightly when reaches its destination',
 
-
-  inputs: {
-
-  },
-
-
-  exits: {
-
-    success: {
-      outputFriendlyName: 'Package state',
-    },
-
-  },
-
-
   fn: async function (inputs) {
 
     var states = {

@@ -22,16 +22,6 @@ module.exports = {
     }
   },
 
-
-  exits: {
-
-    success: {
-      outputFriendlyName: 'Warehouse',
-    },
-
-  },
-
-
   fn: async function (inputs, exits) {
 
     // Using SQL query we take advantaje of mysql's native concurrency when update
@@ -42,7 +32,7 @@ module.exports = {
     var result = await sails.sendNativeQuery(WAREHOUSE_SQL);
     console.log(result);
 
-    return exits.success();
+    return exits.success('all done');
   }
 };
 

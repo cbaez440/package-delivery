@@ -16,16 +16,6 @@ module.exports = {
     },
   },
 
-
-  exits: {
-
-    success: {
-      outputFriendlyName: 'Packages',
-    },
-
-  },
-
-
   fn: async function (inputs) {
 
     // Get packages.

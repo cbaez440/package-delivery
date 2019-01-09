@@ -8,8 +8,6 @@ module.exports = {
 
   description: 'returns the distance between two locations',
 
-  //sync: true,
-
   inputs: {
     origin: {
       type: 'string',
@@ -25,15 +23,6 @@ module.exports = {
     }
   },
 
-  exits: {
-
-    success: {
-
-    },
-
-  },
-
-
   fn: async function (inputs, exits) {
 
     var origins = [inputs.origin];
@@ -44,7 +33,7 @@ module.exports = {
     await distance.matrix(origins, destinations, (err, distances) => {
       if (!err)
       {console.log(distances);}
-      console.log(distances.rows[0].elements);
+      //console.log(distances.rows[0].elements);
 
       var distance = distances.rows[0].elements[0].distance.value; // meters
       return exits.success(distance);

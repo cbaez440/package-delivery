@@ -16,16 +16,6 @@ module.exports = {
     }
   },
 
-
-  exits: {
-
-    success: {
-      description: 'All done.',
-    },
-
-  },
-
-
   fn: async function (inputs, exits) {
     
     var warehousesSortedByProximity = await sails.helpers.other.getWarehousesByProximity.with({ destinationAddress: inputs.package.deliveryAddress });
@@ -84,7 +74,7 @@ module.exports = {
             console.log("Package with ID %s sent to nearby city: %s", inputs.package.id, nextNearbyWarehouse.city)
           }
 
-          return exits.success();
+          return exits.success('all done');
         }
       }
 
@@ -93,7 +83,7 @@ module.exports = {
       await sails.helpers.database.updatePackage.with({ packageId: inputs.package.id, state: sails.config.globals.PACKAGE_AT_MAIN_OFFICE, cost: currentCostPlusPenalty });
       console.log("All warehouses are full. Package with ID %s will send to warehouse tomorrow", inputs.package.id, nextNearbyWarehouse.city)
       
-      return exits.success();
+      return exits.success('all done');
     }
   }
 

@@ -16,16 +16,6 @@ module.exports = {
     }
   },
 
-
-  exits: {
-
-    success: {
-      outputFriendlyName: 'Warehouses by proximity',
-    },
-
-  },
-
-
   fn: async function (inputs) {
 
     var warehouses = await sails.helpers.database.getAllWarehouses();

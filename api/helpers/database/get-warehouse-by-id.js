@@ -15,15 +15,6 @@ module.exports = {
   },
 
 
-  exits: {
-
-    success: {
-      outputFriendlyName: 'Warehouse',
-    },
-
-  },
-
-
   fn: async function (inputs) {
 
     // Get warehouse.

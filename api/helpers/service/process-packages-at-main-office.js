@@ -7,20 +7,6 @@ module.exports = {
   description: 'processes packages from main office to warehouse',
 
 
-  inputs: {
-
-  },
-
-
-  exits: {
-
-    success: {
-      description: 'All done.',
-    },
-
-  },
-
-
   fn: async function (inputs) {
     var packagesToDistribute = await sails.helpers.database.getPackages.with({ state: [sails.config.globals.PACKAGE_AT_MAIN_OFFICE] });
 
