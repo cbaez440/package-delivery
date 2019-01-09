@@ -22,8 +22,8 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    var min = 8;
-    var max = 9;
+    var min = 2;
+    var max = 3;
     var rand = Math.floor(Math.random() * (max - min + 1) + min); // Generate Random number between 5 - 10
     console.log('Wait for ' + rand + ' seconds');
 

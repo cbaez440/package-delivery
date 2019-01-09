@@ -24,6 +24,7 @@ module.exports = {
       type: 'number',
       example: 8,
       description: '',
+      required: true
     }
   },
 

@@ -47,7 +47,7 @@ module.exports = {
     console.log('New state: %s', newState);
 
     // Update the database with the package's new attributes
-    await sails.helpers.database.updatePackageInShipping.with({ packageId: inputs.package.id, state: newState, cost: cost });
+    await sails.helpers.database.updatePackage.with({ packageId: inputs.package.id, state: newState, cost: cost });
 
     // How the package is going to the destination address, you simulate the passage of time. For the exersize, you assume that 1 second is 1 hour.
     await sails.helpers.other.simulateDeliveryTime();
@@ -60,11 +60,11 @@ module.exports = {
     console.log('New state: %s', newState);
 
     // Update the database with the package's new attributes
-    await sails.helpers.database.updatePackageDelivered.with({ packageId: inputs.package.id, state: newState, timestamp: timestamp });
+    await sails.helpers.database.updatePackage.with({ packageId: inputs.package.id, state: newState, timestamp: timestamp });
 
     // If the package was delivered, the space that occupied in the warehouse has to be released
     if (newState === sails.config.globals.PACKAGE_DELIVERED) {
-      await sails.helpers.database.updatePackagesAtWarehouse.with({ warehouseId: inputs.package.warehouseId, operation: '-' });
+      await sails.helpers.database.updateWarehouse.with({ context: sails.config.globals.PACKAGE_DELIVERED, warehouseId: inputs.package.warehouseId });
     }
 
     console.log("Package %s done.", inputs.package.id)
