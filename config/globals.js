@@ -55,5 +55,6 @@ module.exports.globals = {
   PACKAGE_DELIVERED: 'delivered',
   PACKAGE_RETURNED: 'returned',
 
-  KMS_TRAVELED_PER_USD: 5
+  KMS_TRAVELED_PER_USD: 5,
+  PENALTY: 70 // USD
 };

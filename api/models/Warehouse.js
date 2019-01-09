@@ -23,6 +23,9 @@ module.exports = {
     packages:{
       type: 'number',
       required: false
+    },
+    full: {
+      type: 'boolean'
     }
   }
 };

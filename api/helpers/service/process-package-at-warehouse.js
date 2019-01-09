@@ -27,7 +27,7 @@ module.exports = {
   fn: async function (inputs) {
 
     // Get the warehouse's city of a package
-    var warehouse = await sails.helpers.database.getWarehouse.with({ warehouseId: inputs.package.warehouseId });
+    var warehouse = await sails.helpers.database.getWarehouseById.with({ warehouseId: inputs.package.warehouseId });
     var warehouseLocation = warehouse[0].city;
     var customerAddress = inputs.package.deliveryAddress;
     console.log('Warehouse location: %s', warehouseLocation);

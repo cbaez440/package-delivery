@@ -29,9 +29,9 @@ module.exports = {
       example: 8,
       description: '',
     },
-    operation: {
-      type: 'string',
-      example: '+',
+    timestamp: {
+      type: 'number',
+      example: 1547059116917,
       description: '',
     }
   },
@@ -48,18 +48,29 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-  	if (inputs.state === sails.config.globals.PACKAGE_TOWARDS_DESTINATION) {
-    	
-    	await sails.helpers.database.updatePackageInShipping.with({ packageId: inputs.packageId, state: inputs.state, cost: inputs.cost });
+    var  valuesToSet = {};
 
-  	} else if (inputs.state === sails.config.globals.PACKAGE_DELIVERED) {
-  		
-  		await sails.helpers.database.updatePackageDelivered.with({ packageId: inputs.packageId, state: inputs.state, timestamp: inputs.timestamp });
-
-  	} else {
-  		return exits.error();
-  	}
+    switch (inputs.state) {
+      case sails.config.globals.PACKAGE_TOWARDS_DESTINATION:
+        valuesToSet = { state: inputs.state, deliveryCost: inputs.cost};
+        break;
+      case sails.config.globals.PACKAGE_DELIVERED:
+        valuesToSet = { state: inputs.state, deliveryTimestamp: inputs.timestamp };
+        break;
+      case sails.config.globals.PACKAGE_AT_WAREHOUSE:
+        valuesToSet = { state: inputs.state, warehouseId: inputs.warehouseId };
+        break;
+      case sails.config.globals.PACKAGE_AT_MAIN_OFFICE:
+        valuesToSet = { state: inputs.state, deliveryCost: inputs.cost };
+        break;
+      default: return exits.error();
+    }
     
+    var result = await Package.updateOne({ id: inputs.packageId })
+    .set(valuesToSet);
+
+    console.log(result);
+
     return exits.success();
   }
 
