@@ -15,11 +15,21 @@ module.exports = {
 
     var packagesToDistribute = await sails.helpers.database.getPackages.with({ criteria: criteria });
 
-    for (var i = 0; i < packagesToDistribute.length; i++) {
-      await sails.helpers.service.processPackageAtMainOffice.with({ package: packagesToDistribute[i] });
-    }
+    var promises = [];
 
-    return 'all done'
+    for (var i = 0; i < packagesToDistribute.length; i++) {
+      promises.push(sails.helpers.service.processPackageAtMainOffice.with({ package: packagesToDistribute[i] }));
+    }
+    
+    Promise.all(promises)    
+   .then(function(data) { 
+      return 'all done'
+    })
+   .catch(function(err){
+      console.log(err)
+      return 'error'
+   });
+
   }
 
 

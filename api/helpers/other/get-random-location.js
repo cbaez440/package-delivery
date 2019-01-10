@@ -1,7 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Generate random location',
+  friendlyName: 'get random location',
 
   inputs: {
     position: {
