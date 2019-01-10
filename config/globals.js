@@ -56,5 +56,8 @@ module.exports.globals = {
   PACKAGE_RETURNED: 'returned',
 
   KMS_TRAVELED_PER_USD: 5,
-  PENALTY: 70 // USD
+  PENALTY: 70, // USD
+  OCUPATION_LIMIT: 95,
+  WAREHOUSE_SPACE: 'warehouse space',
+  SEND_PACKAGE_TO_WAREHOUSE: 'sending package to warehouse'
 };

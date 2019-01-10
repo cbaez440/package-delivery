@@ -4,6 +4,6 @@ test('should send a package to customer address', async () => {
 
   var result = await sails.helpers.service.processPackageAtWarehouse.with({ package: packageToSend[0] });
 
-  expect(result).toBe('all done')
+  expect(result).toBe('all done');
 
 });

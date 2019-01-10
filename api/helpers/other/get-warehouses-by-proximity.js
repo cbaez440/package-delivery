@@ -29,8 +29,8 @@ module.exports = {
       warehouse.distance = distance;
     }
 
-    warehouses.sort(function(a, b) {
-        return a.distance - b.distance;
+    warehouses.sort((a, b) => {
+      return a.distance - b.distance;
     });
 
     return warehouses;

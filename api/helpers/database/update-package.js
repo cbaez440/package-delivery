@@ -8,7 +8,7 @@ module.exports = {
 
 
   inputs: {
-  	packageId: {
+    packageId: {
       type: 'number',
       example: 0,
       description: '',
@@ -56,7 +56,7 @@ module.exports = {
         break;
       default: return exits.error('error');
     }
-    
+
     var result = await Package.updateOne({ id: inputs.packageId })
     .set(valuesToSet);
 

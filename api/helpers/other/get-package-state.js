@@ -6,7 +6,7 @@ module.exports = {
 
   description: 'gets the packate state randomly and weightly when reaches its destination',
 
-  fn: async function (inputs) {
+  fn: async function () {
 
     var states = {
       [sails.config.globals.PACKAGE_DELIVERED]: 30,

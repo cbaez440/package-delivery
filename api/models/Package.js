@@ -33,7 +33,7 @@ module.exports = {
       type: 'number',
     },
     warehouseId:{
-    	model: 'warehouse'
+      model: 'warehouse'
     }
   }
 };

@@ -6,7 +6,7 @@ module.exports = {
 
   description: 'returns all warehouses',
 
-  fn: async function (inputs) {
+  fn: async function () {
 
     var warehouses = await Warehouse.find({
       id: { '!' : 11 } // record with id "11" is used for tests

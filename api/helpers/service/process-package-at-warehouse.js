@@ -57,7 +57,7 @@ module.exports = {
       await sails.helpers.database.updateWarehouse.with({ context: sails.config.globals.PACKAGE_DELIVERED, warehouseId: inputs.package.warehouseId });
     }
 
-    console.log("Package %s done.", inputs.package.id)
+    console.log('Package %s done.', inputs.package.id);
 
     return exits.success('all done');
   }
