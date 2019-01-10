@@ -4,10 +4,10 @@ a [Sails v1](https://sailsjs.com) application
 
 
 ## Project setup
-### Test coverage
+## Test coverage
 npm test --coverage
 
-### Lints and fixes files
+## Lints and fixes files
 npm run lint
 
 ## Instructions to run
