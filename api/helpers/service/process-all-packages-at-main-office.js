@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 module.exports = {
 
 
@@ -9,29 +11,22 @@ module.exports = {
 
   fn: async function (exits) {
 
+    //var nextDay = moment(new Date()).add(1, 'day').format('YYYY/MM/DD');
+    var nextDay = moment(new Date()).format('YYYY/MM/DD'); // For tests
+
   	var criteria = {
       state: sails.config.globals.PACKAGE_AT_MAIN_OFFICE,
+      deliveryDate: nextDay
     };
 
     var packagesToDistribute = await sails.helpers.database.getPackages.with({ criteria: criteria });
 
-    var promises = [];
-
     for (var i = 0; i < packagesToDistribute.length; i++) {
-      promises.push(sails.helpers.service.processPackageAtMainOffice.with({ package: packagesToDistribute[i] }));
+      await sails.helpers.service.processPackageAtMainOffice.with({ package: packagesToDistribute[i] });
     }
 
-    return Promise.all(promises)
-   .then((data) => {
      return 'all done';
-   })
-   .catch((err) => {
-     console.log(err);
-     return 'error';
-   });
-
+  
   }
 
-
 };
-

@@ -33,10 +33,19 @@ module.exports = {
     await distance.matrix(origins, destinations, (err, distances) => {
       if (!err)
       {console.log(distances);}
-      //console.log(distances.rows[0].elements);
+
+      if (distances === undefined) {
+        console.log("ERROR: %s", destinations)
+        return exits.success(-1)
+      }
+
+      if (distances.rows[0].elements[0].distance === undefined) {
+        console.log("ERROR: %s", destinations)
+        return exits.success(-1)
+      }
 
       var distance = distances.rows[0].elements[0].distance.value; // meters
-      return exits.success(distance);
+      return exits.success(distance)
     });
   }
 

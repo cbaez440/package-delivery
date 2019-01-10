@@ -5,5 +5,4 @@ test('should send a package to a warehouse', async () => {
   var result = await sails.helpers.service.processPackageAtMainOffice.with({ package: packageToSend[0] });
 
   expect(result).toBe('all done');
-
 });

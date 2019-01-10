@@ -1,4 +1,4 @@
-test('should add warehouses', async () => {
+test('should add default warehouses', async () => {
 
   var result = await sails.helpers.init.addDefaultWarehouses();
 

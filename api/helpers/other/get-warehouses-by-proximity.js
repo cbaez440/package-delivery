@@ -20,13 +20,21 @@ module.exports = {
 
     var warehouses = await sails.helpers.database.getAllWarehouses();
 
+    var promises = [];
+
     for (var i = 0; i < warehouses.length; i++) {
 
       var warehouse = warehouses[i];
       var city = warehouse.city;
 
-      var distance = await sails.helpers.maps.getDistance.with({ origin: city, destination: inputs.destinationAddress }); // meters
-      warehouse.distance = distance;
+      promises.push(sails.helpers.maps.getDistance.with({ origin: city, destination: inputs.destinationAddress })); // meters
+      
+    }
+
+    var distancesData = await Promise.all(promises);
+
+    for (var i = 0; i < distancesData.length; i++) {
+      warehouses[i].distance = distancesData[i];
     }
 
     warehouses.sort((a, b) => {

@@ -1,4 +1,4 @@
-test('should add a package', async () => {
+test('should add a random package', async () => {
 
   var result = await sails.helpers.init.addRandomPackage();
 

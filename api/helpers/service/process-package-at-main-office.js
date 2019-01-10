@@ -22,6 +22,10 @@ module.exports = {
 
     var nearestWarehouse = warehousesSortedByProximity[0];
 
+    if (warehousesSortedByProximity[0].distance === -1) {
+      return 'the package doesnt have a valid address'
+    }
+
     console.log('Nearest warehouse: %s', JSON.stringify(nearestWarehouse));
 
     if (!nearestWarehouse.full) {

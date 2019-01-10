@@ -9,7 +9,7 @@ module.exports = {
 
   fn: async function () {
 
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 1000; i++) {
 
       var code = Math.floor(Math.random() * 10000000);
       var deliveryDate = await sails.helpers.other.getRandomDate();
