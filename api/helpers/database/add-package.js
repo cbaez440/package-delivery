@@ -54,17 +54,17 @@ module.exports = {
     var date = moment(inputs.deliveryDate).format('YYYY/MM/DD');
 
     var initialValues = {
-      code: inputs.code, 
-      deliveryAddress: inputs.deliveryAddress, 
-      deliveryDate: date, 
-      state: inputs.state, 
+      code: inputs.code,
+      deliveryAddress: inputs.deliveryAddress,
+      deliveryDate: date,
+      state: inputs.state,
       deliveryTimestamp: inputs.deliveryTimestamp,
       deliveryCost: inputs.deliveryCost
-    }
+    };
 
     var result = await Package.create(initialValues);
 
-    return exits.success('all done')
+    return exits.success('all done');
   }
 
 

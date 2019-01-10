@@ -1017,7 +1017,7 @@ module.exports = {
       'Concejal Alfonzo Ii, Buenos Aires',
       'Concepción, Entre Rios',
       'Concordia Y Rufino Zado, Buenos Aires'
-      ]
+    ];
 
     return randomLocation[inputs.position];
 

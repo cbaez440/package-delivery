@@ -19,17 +19,17 @@ module.exports = {
       var warehouseId;
       var deliveryAddress = await sails.helpers.other.getRandomLocation.with({ position: i });
 
-      await sails.helpers.database.addPackage.with({ 
-        code: code, 
-        deliveryAddress: deliveryAddress, 
-        deliveryDate: deliveryDate, 
-        state: state, 
+      await sails.helpers.database.addPackage.with({
+        code: code,
+        deliveryAddress: deliveryAddress,
+        deliveryDate: deliveryDate,
+        state: state,
         deliveryTimestamp: deliveryTimestamp,
         deliveryCost: deliveryCost,
-      })
+      });
     }
 
-    return 'all done'
+    return 'all done';
   }
 
 

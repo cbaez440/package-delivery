@@ -7,10 +7,10 @@
 
 module.exports = {
 
-	randomlyGenerate: async function (req, res) {
+  randomlyGenerate: async function (req, res) {
 	    await sails.helpers.init.addRandomPackage();
 	    return res.ok();
-	}
+  }
 
 };
 

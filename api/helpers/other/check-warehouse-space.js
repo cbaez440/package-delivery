@@ -24,7 +24,7 @@ module.exports = {
       await sails.helpers.database.updateWarehouse.with({ context: sails.config.globals.WAREHOUSE_SPACE, isFull: false, warehouseId: inputs.warehouseId });
     }
 
-    return exits.success();
+    return exits.success('all done');
 
   }
 

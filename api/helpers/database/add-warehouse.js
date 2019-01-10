@@ -48,11 +48,11 @@ module.exports = {
       limit: inputs.limit,
       full: inputs.full,
       packages: inputs.packages
-    }
+    };
 
     var result = await Warehouse.create(initialValues);
 
-    return exits.success('all done')
+    return exits.success('all done');
   }
 
 

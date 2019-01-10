@@ -11,7 +11,7 @@ module.exports = {
 
   	var criteria = {
       state: sails.config.globals.PACKAGE_AT_MAIN_OFFICE,
-    }
+    };
 
     var packagesToDistribute = await sails.helpers.database.getPackages.with({ criteria: criteria });
 
@@ -20,14 +20,14 @@ module.exports = {
     for (var i = 0; i < packagesToDistribute.length; i++) {
       promises.push(sails.helpers.service.processPackageAtMainOffice.with({ package: packagesToDistribute[i] }));
     }
-    
-    Promise.all(promises)    
-   .then(function(data) { 
-      return 'all done'
-    })
-   .catch(function(err){
-      console.log(err)
-      return 'error'
+
+    return Promise.all(promises)
+   .then((data) => {
+     return 'all done';
+   })
+   .catch((err) => {
+     console.log(err);
+     return 'error';
    });
 
   }

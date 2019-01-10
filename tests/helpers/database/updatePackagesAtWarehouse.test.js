@@ -1,4 +1,4 @@
-test('should update a package', async () => {
+test('should update a warehouse', async () => {
 
   var result = await sails.helpers.database.updatePackagesAtWarehouse.with({ warehouseId: 11, operation: '+' });
 
