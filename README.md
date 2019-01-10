@@ -32,5 +32,5 @@ http://localhost:1337/logistic/sendPackagesToWarehouse
 #### 7. Send packages from warehouse to destination address
 http://localhost:1337/logistic/sendPackagesToDestination
 
-Notes: for tests purpose, the package's delivery dates are the day which the test is run.
+Note: for tests purpose, the package's delivery dates are the day which the test is run.
 
