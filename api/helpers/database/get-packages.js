@@ -8,9 +8,9 @@ module.exports = {
 
 
   inputs: {
-    state: {
-      type: ['string'],
-      example: [],
+    criteria: {
+      type: {},
+      example: {},
       description: '',
       required: true
     },
@@ -19,9 +19,7 @@ module.exports = {
   fn: async function (inputs) {
 
     // Get packages.
-    var packages = await Package.find({
-      state: inputs.state
-    });
+    var packages = await Package.find(inputs.criteria);
 
     // Send back the result through the success exit.
     return packages;

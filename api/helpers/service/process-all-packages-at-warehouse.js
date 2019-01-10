@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 module.exports = {
 
 
@@ -8,7 +10,15 @@ module.exports = {
 
 
   fn: async function (exits) {
-    var packagesToSend = await sails.helpers.database.getPackages.with({ state: [sails.config.globals.PACKAGE_AT_WAREHOUSE, sails.config.globals.PACKAGE_RETURNED] });
+    
+    var currentDay = moment(new Date()).format('YYYY/MM/DD');
+
+    var criteria = {
+      state: [sails.config.globals.PACKAGE_AT_WAREHOUSE, sails.config.globals.PACKAGE_RETURNED],
+      deliveryDate: currentDay
+    }
+
+    var packagesToSend = await sails.helpers.database.getPackages.with({ criteria: criteria });
 
     for (var i = 0; i < packagesToSend.length; i++) {
       await sails.helpers.service.processPackageAtWarehouse.with({ package: packagesToSend[i] });
