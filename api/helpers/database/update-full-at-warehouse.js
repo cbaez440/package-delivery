@@ -31,7 +31,7 @@ module.exports = {
     var result = await Warehouse.updateOne({ id: inputs.warehouseId })
     .set(valuesToSet);
 
-    console.log(result);
+    console.log('Warehouse update: %s', JSON.stringify(result));
 
     return exits.success('all done');
   }

@@ -30,7 +30,7 @@ module.exports = {
       'WHERE package_delivery.warehouse.id = ' + inputs.warehouseId;
 
     var result = await sails.sendNativeQuery(WAREHOUSE_SQL);
-    console.log(result);
+    console.log('Warehouse update: %s', JSON.stringify(result));
 
     return exits.success('all done');
   }

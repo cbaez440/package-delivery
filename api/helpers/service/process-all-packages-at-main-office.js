@@ -10,13 +10,11 @@ module.exports = {
   fn: async function (exits) {
     var packagesToDistribute = await sails.helpers.database.getPackages.with({ state: [sails.config.globals.PACKAGE_AT_MAIN_OFFICE] });
 
-    console.log(packagesToDistribute);
-
     for (var i = 0; i < packagesToDistribute.length; i++) {
       await sails.helpers.service.processPackageAtMainOffice.with({ package: packagesToDistribute[i] });
     }
 
-    return exits.success('all done')
+    return 'all done'
   }
 
 

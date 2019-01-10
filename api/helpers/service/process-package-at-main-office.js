@@ -29,7 +29,7 @@ module.exports = {
       await sails.helpers.database.updateWarehouse.with({ context: sails.config.globals.SEND_PACKAGE_TO_WAREHOUSE, warehouseId: nearestWarehouse.id });
       await sails.helpers.other.checkWarehouseSpace.with({ warehouseId: nearestWarehouse.id });
       console.log('Package with ID %s sent to nearest warehouse', inputs.package.id);
-
+      return exits.success('all done');
     } else {
 
       for (var i = 1; i < warehousesSortedByProximity.length; i++) {

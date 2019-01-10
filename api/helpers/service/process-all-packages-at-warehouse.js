@@ -17,7 +17,7 @@ module.exports = {
     // After all packages were processed, the system check if a warehouse has space to save more
     await sails.helpers.database.checkAllWarehousesSpace();
 
-    return exits.success('all done')
+    return 'all done'
   }
 
 

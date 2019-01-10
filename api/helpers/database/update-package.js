@@ -60,7 +60,7 @@ module.exports = {
     var result = await Package.updateOne({ id: inputs.packageId })
     .set(valuesToSet);
 
-    console.log(result);
+    console.log('Package update: %s', JSON.stringify(result));
 
     return exits.success('all done');
   }

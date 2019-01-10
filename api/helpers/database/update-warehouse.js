@@ -24,7 +24,6 @@ module.exports = {
       type: 'boolean',
       example: false,
       description: '',
-      required: true
     },
   },
 
@@ -38,7 +37,7 @@ module.exports = {
       await sails.helpers.database.updatePackagesAtWarehouse.with({ warehouseId: inputs.warehouseId, operation: '+' });
 
     } else if (inputs.context === sails.config.globals.WAREHOUSE_SPACE) {
-      console.log('aqui');
+
       await sails.helpers.database.updateFullAtWarehouse.with({ warehouseId: inputs.warehouseId, isFull: inputs.isFull });
 
     } else {
