@@ -9,7 +9,7 @@ module.exports = {
   fn: async function () {
 
     var warehouses = await Warehouse.find({
-      id: { '!' : 11 } // record with id "11" is used for tests
+      name: { '!' : 'WH00' } // records with name 'WH00' are used for tests
     });
 
     return warehouses;

@@ -7,6 +7,10 @@
 
 module.exports = {
 
+	init: async function (req, res) {
+	    await sails.helpers.init.addDefaultWarehouses();
+	    return res.ok();
+	},
 
 };
 
