@@ -20,14 +20,22 @@ module.exports = {
 
     var packagesToSend = await sails.helpers.database.getPackages.with({ criteria: criteria });
 
+    var promises = [];
+
     for (var i = 0; i < packagesToSend.length; i++) {
-      await sails.helpers.service.processPackageAtWarehouse.with({ package: packagesToSend[i] });
+      promises.push(sails.helpers.service.processPackageAtWarehouse.with({ package: packagesToSend[i] }));
     }
 
-    // After all packages were processed, the system check if a warehouse has space to save more
-    await sails.helpers.other.checkAllWarehousesSpace();
+    Promise.all(promises)    
+   .then(async function(data) { 
+      await sails.helpers.other.checkAllWarehousesSpace();
+      return 'all done'
+    })
+   .catch(function(err){
+      console.log(err)
+      return 'error'
+   });
 
-    return 'all done'
   }
 
 
