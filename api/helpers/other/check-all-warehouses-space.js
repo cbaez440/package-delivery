@@ -9,9 +9,9 @@ module.exports = {
   fn: async function () {
     var warehouses = await sails.helpers.database.getAllWarehouses();
 
-    for (var i = 0; warehouses.length; i++) {
+    for (var i = 0; i < warehouses.length; i++) {
 
-      await sails.helpers.checkWarehouseSpace({ warehouseId: warehouses[i].id });
+      await sails.helpers.other.checkWarehouseSpace.with({ warehouseId: warehouses[i].id });
 
     }
 

@@ -46,6 +46,7 @@ module.exports = {
         valuesToSet = { state: inputs.state, deliveryCost: inputs.cost};
         break;
       case sails.config.globals.PACKAGE_DELIVERED:
+      case sails.config.globals.PACKAGE_RETURNED:
         valuesToSet = { state: inputs.state, deliveryTimestamp: inputs.timestamp };
         break;
       case sails.config.globals.PACKAGE_AT_WAREHOUSE:
@@ -54,7 +55,7 @@ module.exports = {
       case sails.config.globals.PACKAGE_AT_MAIN_OFFICE:
         valuesToSet = { state: inputs.state, deliveryCost: inputs.cost };
         break;
-      default: return exits.error('error');
+      default: return;
     }
 
     var result = await Package.updateOne({ id: inputs.packageId })

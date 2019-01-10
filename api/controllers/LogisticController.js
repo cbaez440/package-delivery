@@ -8,12 +8,12 @@
 module.exports = {
 
   sendPackagesToWarehouse: async function (req, res) {
-    await sails.helpers.processPackagesAtMainOffice();
+    await sails.helpers.service.processAllPackagesAtMainOffice();
     return res.ok();
   },
 
   sendPackagesToDestination: async function (req, res) {
-    await sails.helpers.processPackagesAtWarehouse();
+    await sails.helpers.service.processAllPackagesAtWarehouse();
     return res.ok();
   }
 };

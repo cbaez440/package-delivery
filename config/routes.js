@@ -23,7 +23,7 @@ module.exports.routes = {
   'GET /logistic/sendPackagesToWarehouse': {controller: 'logistic', action: 'sendPackagesToWarehouse'},
   'GET /logistic/sendPackagesToDestination': {controller: 'logistic', action: 'sendPackagesToDestination'},
   'GET /warehouse/init': {controller: 'warehouse', action: 'init'},
-  'GET /package/addRandomPackage': {controller: 'package', action: 'addRandomPackage'},
+  'GET /package/addRandomPackage': {controller: 'package', action: 'randomlyGenerate'},
 
   /***************************************************************************
   *                                                                          *
