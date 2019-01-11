@@ -28,12 +28,17 @@ module.exports = {
 
     console.log('Nearest warehouse: %s', JSON.stringify(nearestWarehouse));
 
+    // If the nearest warehouse is not full, the package is sent to there
     if (!nearestWarehouse.full) {
+
       await sails.helpers.database.updatePackage.with({ packageId: inputs.package.id, state: sails.config.globals.PACKAGE_AT_WAREHOUSE, warehouseId: nearestWarehouse.id });
       await sails.helpers.database.updateWarehouse.with({ context: sails.config.globals.SEND_PACKAGE_TO_WAREHOUSE, warehouseId: nearestWarehouse.id });
+      
+      // When the space in the warehouse is updated, is necessary to check it is full or not
       await sails.helpers.other.checkWarehouseSpace.with({ warehouseId: nearestWarehouse.id });
       console.log('Package with ID %s sent to nearest warehouse', inputs.package.id);
       return exits.success('all done');
+
     } else {
 
       for (var i = 1; i < warehousesSortedByProximity.length; i++) {
@@ -76,6 +81,8 @@ module.exports = {
             // Is convenient send the package from nearby city
             await sails.helpers.database.updatePackage.with({ packageId: inputs.package.id, state: sails.config.globals.PACKAGE_AT_WAREHOUSE, warehouseId: nextNearbyWarehouse.id });
             await sails.helpers.database.updateWarehouse.with({ context: sails.config.globals.SEND_PACKAGE_TO_WAREHOUSE, warehouseId: nextNearbyWarehouse.id });
+            
+            // When the space in the warehouse is updated, is necessary to check it is full or not
             await sails.helpers.other.checkWarehouseSpace.with({ warehouseId: nextNearbyWarehouse.id });
             console.log('Package with ID %s sent to nearby city: %s', inputs.package.id, nextNearbyWarehouse.city);
           }

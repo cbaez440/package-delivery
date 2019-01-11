@@ -39,7 +39,7 @@ module.exports = {
     // Update the database with the package's new attributes
     await sails.helpers.database.updatePackage.with({ packageId: inputs.package.id, state: newState, cost: cost });
 
-    // How the package is going to the destination address, you simulate the passage of time. For the exersize, you assume that 1 second is 1 hour.
+    // How the package is going to the destination address, is necessary to simulate the passage of time. For the exercise, you assume that 1 second is 1 hour.
     await sails.helpers.other.simulateDeliveryTime();
 
     /** The package reaches its destination **/

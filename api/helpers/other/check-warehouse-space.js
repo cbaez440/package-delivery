@@ -12,7 +12,7 @@ module.exports = {
     }
   },
 
-  description: 'check if the warehouses are full or not',
+  description: 'check if a warehouse are full or not',
 
   fn: async function (inputs, exits) {
 

@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Is full',
 
 
-  description: 'returns if a warehouse is full or no',
+  description: 'returns if a warehouse is full or not',
 
 
   inputs: {
